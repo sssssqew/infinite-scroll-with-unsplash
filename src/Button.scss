@@ -1,0 +1,58 @@
+@use "sass:list";
+
+$colors: blue, tomato, grey;
+$hover-colors: skyblue, lightsalmon, lightgray; 
+$sizes: large, medium, small;
+
+$default-height: 50px;
+$default-padding-left: 10px;
+$default-padding-right: 10px;
+$default-font-size: 1rem;
+
+@mixin setBtnSize($size, $h, $pl, $pr, $fs){
+  .#{$size}{
+    height: $h;
+    padding-left: $pl;
+    padding-right: $pr;
+    font-size: $fs;
+  }
+}
+
+.Button {
+  all: unset;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover{
+    opacity: 0.7;
+  }
+}
+/* 버튼의 크기 설정 */
+@include setBtnSize(list.nth($sizes, 1), $default-height + 20px , $default-padding-left + 5px, $default-padding-right + 5px, $default-font-size + 0.2rem);
+@include setBtnSize(list.nth($sizes, 2), $default-height , $default-padding-left, $default-padding-right, $default-font-size);
+@include setBtnSize(list.nth($sizes, 3), $default-height - 20px , $default-padding-left - 5px, $default-padding-right - 5px, $default-font-size - 0.2rem);
+
+/* 버튼의 배경색 설정 */
+@each $color in $colors{
+  .#{$color}{
+    background: $color;
+
+    &:hover{
+      background: list.nth($hover-colors, list.index($colors, $color));
+    }
+  }
+}
+
+/* 전체 너비를 차지하는 버튼 */
+.fullWidth{
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

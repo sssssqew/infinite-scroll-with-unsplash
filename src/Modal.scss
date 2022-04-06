@@ -1,0 +1,53 @@
+$modal-func: (
+  open: block,
+  close: none
+);
+
+$modal-style: (
+  header: (
+    font-size: 1.2rem,
+    font-weight: bold
+  ),
+  body: (
+    font-size: 0.9rem,
+    margin: 20px
+  ),
+  'body input': (
+    width: 60%,
+    height: 30px,
+    border: 1px solid lightgray,
+    border-radius: 5px,
+    margin-bottom: 10px
+  ),
+  footer: (
+    display: flex,
+    justify-content: flex-end,
+    align-items: center
+  )
+);
+
+.Modal {
+  width: 500px;
+  margin: 100px auto;
+  border: 1px solid tan;
+  padding: 10px;
+  text-align: center;
+}
+
+// 모달창 열고 닫기
+@each $key, $value in $modal-func{
+  .#{$key}{
+    display: $value;
+  }
+}
+// 모달창 스타일링
+@each $classname, $attributes in $modal-style{
+  .#{$classname}{
+    @if($classname != 'body input'){ padding: 5px; }
+
+    @each $key, $value in $attributes{
+      #{$key}: $value;
+    }
+  }
+}
+

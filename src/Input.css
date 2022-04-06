@@ -1,0 +1,76 @@
+
+.Input-container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 500px;
+  margin: 10px;
+}
+.Input-label{
+  font-style: italic;
+  font-size: 20px;
+  text-align: right;
+}
+.Input-box{
+  outline: none;
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+/* Input 의 배경색 설정 */
+.blue{
+  color:blue;
+  border-color:blue;
+}
+.blue::placeholder{
+  color: blue;
+}
+.blue:focus{
+  color: skyblue;
+}
+.tomato{
+  color: tomato;
+  border-color:tomato;
+}
+.tomato::placeholder{
+  color: tomato;
+}
+.tomato:focus{
+  color: lightsalmon;
+}
+.grey{
+  color: grey;
+  border-color: grey;
+}
+.grey::placeholder{
+  color: grey;
+}
+.grey:focus{
+  color: lightgray;
+}
+
+/* Input 의 크기 설정 */
+.large{
+  width: 400px;
+  height: 50px;
+  
+  margin-left: 15px;
+  padding-left: 15px;
+  font-size: 25px;
+}
+.medium{
+  width: 300px;
+  height: 40px;
+  
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+.small{
+  width: 200px;
+  height: 30px;
+
+  margin-left: 5px;
+  padding-left: 5px;
+  font-size: 15px;
+}

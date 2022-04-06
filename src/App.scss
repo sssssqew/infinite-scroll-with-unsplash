@@ -1,0 +1,83 @@
+$primary-bg-color: peru;
+$primary-color: white;
+
+@mixin setPosition($jc, $ai, $fw){
+  display: flex;
+  flex-wrap: $fw;
+  justify-content: $jc;
+  align-items: $ai;
+}
+@mixin setFont($size, $weight){
+  font-size: $size;
+  font-weight: $weight;
+  text-align: center;
+}
+@mixin setSize($width, $height){
+  @if($width) { width: $width; }
+  @if($height) { height: $height; }
+}
+@mixin setColor($bgc, $c){
+  @if($bgc) { background: $bgc; }
+  @if($c) { color: $c; }
+}
+
+.header{
+  @include setSize(100%, 70px);
+  @include setPosition(flex-end, center, nowrap);
+  @include setColor($primary-color, null);
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  box-shadow: 1px 1px 5px 5px darkgray;
+  z-index: 1;
+
+  .sort-btns{
+    all: unset;
+    @include setSize(100px, 50px);
+    @include setFont(1rem, bold);
+    @include setColor($primary-bg-color, $primary-color);
+
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+  
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
+.root{
+  @include setSize(60%, null);
+  @include setPosition(center, center, wrap);
+  margin: 100px auto;
+
+  .product{
+    @include setSize(null, 500px);
+    @include setColor($primary-bg-color, $primary-color);
+  
+    flex: 200px;
+    box-shadow: 1px 1px 5px 5px $primary-bg-color;
+    margin: 10px;
+    overflow: hidden;
+
+    .product-img{
+      @include setSize(100%, 180px);
+      overflow: hidden;
+
+      img{
+        @include setSize(100%, 100%);
+      }
+    }
+    .product-name{
+      @include setFont(1.1rem, bold);
+    }
+    .product-description{
+      @include setFont(0.9rem, 400);
+      margin-top: 15px;
+    }
+  }
+}
+
