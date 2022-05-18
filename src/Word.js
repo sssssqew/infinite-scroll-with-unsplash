@@ -1,14 +1,19 @@
-import './Word.css'
+import Button from './Button'
 
-function Word({ r_link, r_word, r_hanja, r_des}){
+function Word({ handleRemove, w }){
+    const wordStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+    const onRemove = (e) => {
+        handleRemove(e)
+    }
     return (
-        <div className="item">
-            <div className="word">
-                <a href={r_link}>{r_word} {r_hanja}
-                </a>
-            </div>
-            <p className="description">{r_des}</p>
+        <div style={wordStyle}>
+            <h2>{w.word}</h2>
+            <Button size="small" type="button" handleClick={(e) => onRemove(e)}>DELETE</Button>
         </div>
     )
 }
-export default Word;
+export default Word

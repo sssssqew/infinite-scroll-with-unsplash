@@ -5,15 +5,16 @@
   border-radius: 5px;
   font-weight: bold;
   margin-left: 10px;
+  text-align: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 .Button:hover{
+  background: orangered;
   opacity: 0.7;
 }
 
-/* 버튼의 크기 설정 */
 .large{
   height: 70px;
   padding-left: 15px;
@@ -52,10 +53,21 @@
 .grey:hover{
   background: lightgray;
 }
+
 /* 전체 너비를 차지하는 버튼 */
 .fullWidth{
   width: 100%;
   margin-left: 0px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+/* 비활성화 버튼 */
+.blocked{
+  background: lightgray;
+  text-decoration: line-through;
+}
+.blocked:hover{
+  background: lightgray;
+  opacity: 1;
 }
